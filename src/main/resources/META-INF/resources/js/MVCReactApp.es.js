@@ -29,10 +29,12 @@ export default class extends React.Component {
 					<h1>{'MVC React App'}</h1>
 				</div>
 
+				<div>ApiKey passed from portlet.java: {this.props.data.apiKey}</div>
+
 				<ul className="nav nav-underline mb-4" role="tablist">
 					<li className="nav-item">
 						<button 
-							className={'nav-link' + (tabIndex == 0 ? ' active' : '')}
+							className={'btn btn-unstyled nav-link' + (tabIndex == 0 ? ' active' : '')}
 							onClick={() => this.setState({tabIndex: 0})}
 							role="tab"
 						>
@@ -41,7 +43,7 @@ export default class extends React.Component {
 					</li>
 					<li className="nav-item">
 						<button 
-							className={'nav-link' + (tabIndex == 1 ? ' active' : '')}
+							className={'btn btn-unstyled nav-link' + (tabIndex == 1 ? ' active' : '')}
 							onClick={() => this.setState({tabIndex: 1})}
 							role="tab"
 						>

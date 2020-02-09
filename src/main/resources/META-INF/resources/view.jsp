@@ -3,7 +3,9 @@
 <%
 Map<String, Object> data = new HashMap<>();
 
-data.put("test", "test");
+String apiKey = (String)request.getAttribute("APIKey");
+
+data.put("apiKey", apiKey);
 %>
 
 <div class="react-component">

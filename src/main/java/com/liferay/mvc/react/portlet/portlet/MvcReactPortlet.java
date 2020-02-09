@@ -4,7 +4,12 @@ import com.liferay.mvc.react.portlet.constants.MvcReactPortletKeys;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
+import java.io.IOException;
+
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -27,4 +32,14 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class MvcReactPortlet extends MVCPortlet {
+
+	@Override
+	public void render(
+			RenderRequest renderRequest, RenderResponse renderResponse)
+		throws IOException, PortletException {
+
+		renderRequest.setAttribute("APIKey", "s3sds@S%Ssdslsksds42s3l4s4li&sds4");
+
+		super.render(renderRequest, renderResponse);
+	}
 }
