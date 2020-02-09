@@ -1,0 +1,4 @@
+Bundle-Name: mvc-react-portlet
+Bundle-SymbolicName: com.liferay.mvc.react.portlet
+Bundle-Version: 1.0.0
+Export-Package: com.liferay.mvc.react.portlet.constants
