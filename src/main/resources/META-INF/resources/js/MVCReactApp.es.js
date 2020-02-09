@@ -6,6 +6,13 @@ import ClayFormHook from './ClayFormHook.es';
 import FunctionalComponent from './FunctionalComponent.es';
 import FunctionalCounter from './FunctionalCounter.es';
 
+const TABS = [
+	'Functional Component',
+	'Clay Form',
+	'Clay Form with Hooks',
+	'Functional Counter with Hooks'
+];
+
 export default class extends React.Component {
 	constructor(props) {
 		super(props);
@@ -40,42 +47,17 @@ export default class extends React.Component {
 				<div>ApiKey passed from portlet.java: {this.props.data.apiKey}</div>
 
 				<ul className="nav nav-underline mb-4" role="tablist">
-					<li className="nav-item">
-						<button 
-							className={'btn btn-unstyled nav-link' + (tabIndex == 0 ? ' active' : '')}
-							onClick={() => this.setState({tabIndex: 0})}
-							role="tab"
-						>
-							Functional Component
-						</button>
-					</li>
-					<li className="nav-item">
-						<button 
-							className={'btn btn-unstyled nav-link' + (tabIndex == 1 ? ' active' : '')}
-							onClick={() => this.setState({tabIndex: 1})}
-							role="tab"
-						>
-							Clay Form
-						</button>
-					</li>
-					<li className="nav-item">
-						<button 
-							className={'btn btn-unstyled nav-link' + (tabIndex == 2 ? ' active' : '')}
-							onClick={() => this.setState({tabIndex: 2})}
-							role="tab"
-						>
-							Clay Form with Hooks
-						</button>
-					</li>
-					<li className="nav-item">
-						<button 
-							className={'btn btn-unstyled nav-link' + (tabIndex == 3 ? ' active' : '')}
-							onClick={() => this.setState({tabIndex: 3})}
-							role="tab"
-						>
-							Functional Counter
-						</button>
-					</li>
+					{TABS.map((tab, i) => (
+						<li className="nav-item" key={tab}>
+							<button 
+								className={'btn btn-unstyled nav-link' + (tabIndex == i ? ' active' : '')}
+								onClick={() => this.setState({tabIndex: i})}
+								role="tab"
+							>
+								{tab}
+							</button>
+						</li>
+					))}
 				</ul>
 
 				{this.renderTabPanel(tabIndex)}
