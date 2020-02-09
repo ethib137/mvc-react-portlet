@@ -1,0 +1,21 @@
+{
+	"dependencies": {
+		"react": "^16.9.0"
+	},
+	"description": "",
+	"main": "js/App.es.js",
+	"name": "mvc-react",
+	"private": true,
+	"scripts": {
+		"build": "babel --source-maps -d build/resources/main/META-INF/resources/js src/main/resources/META-INF/resources/js && liferay-npm-bundler"
+	},
+	"version": "1.0.0",
+	"devDependencies": {
+		"@babel/cli": "^7.7.5",
+		"@babel/core": "^7.7.5",
+		"@babel/preset-env": "^7.7.6",
+		"@babel/preset-react": "^7.7.4",
+		"liferay-npm-bundler": "^2.16.1",
+		"liferay-npm-build-support": "^2.16.1"
+	}
+}

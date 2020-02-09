@@ -1,5 +1,14 @@
 <%@ include file="/init.jsp" %>
 
-<p>
-	<b><liferay-ui:message key="mvcreact.caption"/></b>
-</p>
+<%
+Map<String, Object> data = new HashMap<>();
+
+data.put("test", "test");
+%>
+
+<div class="react-component">
+	<react:component
+		data="<%= data %>"
+		module="js/App.es"
+	/>
+</div>
