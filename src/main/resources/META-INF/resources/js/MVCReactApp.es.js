@@ -29,7 +29,7 @@ export default class extends React.Component {
 			case 2:
 				return <ClayFormHook />;
 			case 3:
-				return <FunctionalCounter />;
+				return <FunctionalCounter initialCount={0} />;
 			default:
 				return <FunctionalComponent />;
 		}

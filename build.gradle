@@ -24,6 +24,7 @@ dependencies {
 	compileOnly group: "org.apache.felix", name: "org.apache.felix.http.servlet-api", version: "1.1.2"
 
 	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib", version: "4.0.32"
+	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.clay", version: "2.2.19"
 	compileOnly group: "com.liferay", name: "com.liferay.frontend.taglib.react", version: "1.0.2"
 }
 
