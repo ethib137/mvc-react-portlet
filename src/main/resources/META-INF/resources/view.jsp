@@ -11,6 +11,6 @@ data.put("apiKey", apiKey);
 <div class="react-component">
 	<react:component
 		data="<%= data %>"
-		module="js/App.es"
+		module="js/Index.es"
 	/>
 </div>

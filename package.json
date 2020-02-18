@@ -5,7 +5,7 @@
 		"react": "^16.9.0"
 	},
 	"description": "",
-	"main": "js/App.es.js",
+	"main": "js/Index.es.js",
 	"name": "mvc-react",
 	"private": true,
 	"scripts": {
