@@ -1,5 +1,7 @@
 
-import React from 'react';
+import React, {useState} from 'react';
+
+import ClayTabs from '@clayui/tabs';
 
 import ClayForm from './ClayForm.es';
 import ClayFormHook from './ClayFormHook.es';
@@ -13,55 +15,69 @@ const TABS = [
 	'Functional Counter with Hooks'
 ];
 
-export default class extends React.Component {
-	constructor(props) {
-		super(props);
+export default (props) => {
+	const [activeTabKeyValue, setActiveTabKeyValue] = useState(0);
 
-		this.state = {tabIndex: 0};
-	}
+	return (
+		<>
+			<div>
+				<h1>{'MVC React App'}</h1>
+			</div>
 
-	renderTabPanel(i) {
-		switch(i) {
-			case 0:
-				return <FunctionalComponent />;
-			case 1:
-				return <ClayForm />;
-			case 2:
-				return <ClayFormHook />;
-			case 3:
-				return <FunctionalCounter initialCount={0} />;
-			default:
-				return <FunctionalComponent />;
-		}
-	}
+			<div>ApiKey passed from portlet.java: {props.data.apiKey}</div>
 
-	render() {
-		const {tabIndex} = this.state;
-
-		return (
-			<>
-				<div>
-					<h1>{'MVC React App'}</h1>
-				</div>
-
-				<div>ApiKey passed from portlet.java: {this.props.data.apiKey}</div>
-
-				<ul className="nav nav-underline mb-4" role="tablist">
-					{TABS.map((tab, i) => (
-						<li className="nav-item" key={tab}>
-							<button 
-								className={'btn btn-unstyled nav-link' + (tabIndex == i ? ' active' : '')}
-								onClick={() => this.setState({tabIndex: i})}
-								role="tab"
-							>
-								{tab}
-							</button>
-						</li>
-					))}
-				</ul>
-
-				{this.renderTabPanel(tabIndex)}
-			</>
-		);
-	}
+			<ClayTabs modern className="my-3">
+				<ClayTabs.Item
+					active={activeTabKeyValue == 0}
+					innerProps={{
+						"aria-controls": "tabpanel-1"
+					}}
+					onClick={() => setActiveTabKeyValue(0)}
+				>
+					{"Functional Component"}
+				</ClayTabs.Item>
+				<ClayTabs.Item
+					active={activeTabKeyValue == 1}
+					innerProps={{
+						"aria-controls": "tabpanel-2"
+					}}
+					onClick={() => setActiveTabKeyValue(1)}
+				>
+					{"Clay Form"}
+				</ClayTabs.Item>
+				<ClayTabs.Item
+					active={activeTabKeyValue == 2}
+					innerProps={{
+						"aria-controls": "tabpanel-3"
+					}}
+					onClick={() => setActiveTabKeyValue(2)}
+				>
+					{"Clay Form with Hooks"}
+				</ClayTabs.Item>
+				<ClayTabs.Item
+					active={activeTabKeyValue == 3}
+					innerProps={{
+						"aria-controls": "tabpanel-4"
+					}}
+					onClick={() => setActiveTabKeyValue(3)}
+				>
+					{"Functional Counter with Hooks"}
+				</ClayTabs.Item>
+			</ClayTabs>
+			<ClayTabs.Content activeIndex={activeTabKeyValue} fade>
+				<ClayTabs.TabPane aria-labelledby="tab-1">
+					<FunctionalComponent />
+				</ClayTabs.TabPane>
+				<ClayTabs.TabPane aria-labelledby="tab-2">
+					<ClayForm />
+				</ClayTabs.TabPane>
+				<ClayTabs.TabPane aria-labelledby="tab-3">
+					<ClayFormHook />
+				</ClayTabs.TabPane>
+				<ClayTabs.TabPane aria-labelledby="tab-4">
+					<FunctionalCounter />
+				</ClayTabs.TabPane>
+			</ClayTabs.Content>
+		</>
+	);
 }
