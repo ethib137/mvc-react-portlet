@@ -1,5 +1,6 @@
-import ClayForm, {ClayInput} from '@clayui/form';
 import React from 'react';
+
+import ClayForm, {ClayInput} from '@clayui/form';
 
 const spritemap = themeDisplay.getPathThemeImages() + '/lexicon/icons.svg';
 
