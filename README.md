@@ -1,6 +1,6 @@
 # MVC React Portlet
 
-A sample Liferay portlet built to highlight best practices.
+A sample Liferay portlet built to highlight best practices, built and tested for Liferay CE 7.3.1 GA2.
 
 This is a discussion that is in progress and has yet to be solidified.
 
